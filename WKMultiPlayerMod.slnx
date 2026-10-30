@@ -1,0 +1,20 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/Core/">
+    <Project Path="D:/DevelopmentPortfolio/c#/WKMultiPlayerMod/src/Core/WKMultiPlayerMod.csproj" />
+  </Folder>
+  <Folder Name="/src/Shared/">
+    <Project Path="D:/DevelopmentPortfolio/c#/WKMultiPlayerMod/src/Shared/WKMultiPlayerMod.Shared.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="D:/DevelopmentPortfolio/c#/WKMultiPlayerMod/src/Test/test.csproj" />
+  </Folder>
+  <Folder Name="/解决方案项/">
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="GameData.md" />
+    <File Path="README.md" />
+    <File Path="README_CN.md" />
+    <File Path="TODO.md" />
+  </Folder>
+</Solution>

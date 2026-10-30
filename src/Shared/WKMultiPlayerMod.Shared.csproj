@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="LocalPaths.props" Condition="Exists('LocalPaths.props')" />
+
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<LangVersion>10.0</LangVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<!-- 统一输出到解决方案的 bin 目录 -->
+		<!-- <OutputPath>$(SolutionDir)bin\$(Configuration)\</OutputPath> -->
+		<!-- 项目本身的 bin 目录 -->
+		<OutputPath>bin\$(Configuration)\</OutputPath>
+	</PropertyGroup>
+
+	<Target Name="ValidateLocalPaths" BeforeTargets="Build" Condition="'$(GamePath)' == '' And '$(UnityProject)' == ''">
+		<Error Text="GameInstallPath is not set. Copy LocalPaths.props.example to LocalPaths.props and set your local game path." />
+	</Target>
+
+	<!-- AfterTargets="PostBuildEvent"表示在生成完成后执行 -->
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(DeployToGame)' == 'true'">
+		<!-- 创建名为 SharedOutputFiles 的项列表 -->
+		<ItemGroup>
+			<SharedOutputFiles Include="$(TargetDir)$(TargetName).dll" />
+		</ItemGroup>
+
+		<!--生成.dll复制到Unity项目下-->
+		<Copy Condition="'$(UnityProject)' != ''" SourceFiles="@(SharedOutputFiles)" DestinationFolder="$(UnityProject)\Assets\Plugins" SkipUnchangedFiles="true" />
+		<!--生成.dll复制到bin\解决方案配置-->
+		<Copy SourceFiles="@(SharedOutputFiles)" DestinationFolder="$(SolutionDir)bin\$(Configuration)\" SkipUnchangedFiles="true" />
+		<!--生成.dll复制到游戏文件夹-->
+		<Copy SourceFiles="@(SharedOutputFiles)" DestinationFolder="$(GamePath)\BepInEx\plugins\MP" SkipUnchangedFiles="true" />
+
+	</Target>
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<ManagedPath>$(GamePath)\White Knuckle_Data\Managed</ManagedPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="$(ManagedPath)\Unity*.dll" Private="False" />
+	</ItemGroup>
+</Project>
+
