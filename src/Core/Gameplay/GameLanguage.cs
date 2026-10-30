@@ -30,7 +30,7 @@ public sealed partial class RussianGame {
 		{ "Диск для терминалов. Вместимость:", "Disk for terminals. Capacity:" }, { "Стрелковое оружие.", "Firearm." }, { "Боеприпасов:", "Ammo:" }
 	};
 	public static event Action LanguageChanged;
-	public static bool IsRussian => (language ??= MPMain.Instance.Config.Bind("Interface", "Language", "ru")).Value != "en";
+	public static bool IsRussian => (language ??= MPMain.Instance.Config.Bind("Interface", "Language", "en")).Value != "en";
 	private static void InitializeEnglish(Dictionary<string, string> data) { english = new Dictionary<string, string>(); foreach (var pair in data) if (!english.ContainsKey(pair.Value)) english[pair.Value] = pair.Key; }
 	private static string English(string text) {
 		if (!text.Any(character => character >= 'А' && character <= 'я' || character == 'ё' || character == 'Ё')) return text;
