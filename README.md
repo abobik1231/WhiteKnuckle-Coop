@@ -14,6 +14,8 @@
 
 An unofficial cooperative extension of [WKMultiMod by Shen-X-L](https://github.com/Shen-X-L/WKMultiMod), with direct LAN connections, optional tethers and manual multiplayer checkpoints.
 
+**[Download 1.21.1](https://github.com/abobik1231/WhiteKnuckle-Coop/raw/refs/heads/main/dist/WhiteKnuckle-Coop-1.21.1.zip)**
+
 ## What you get
 
 | Feature | Details |

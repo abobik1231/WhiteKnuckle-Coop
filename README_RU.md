@@ -14,6 +14,8 @@
 
 Неофициальное кооперативное расширение [WKMultiMod автора Shen-X-L](https://github.com/Shen-X-L/WKMultiMod): прямое подключение, цепь между игроками и ручные сохранения общего прохождения.
 
+**[Скачать 1.21.1](https://github.com/abobik1231/WhiteKnuckle-Coop/raw/refs/heads/main/dist/WhiteKnuckle-Coop-1.21.1.zip)**
+
 ## Возможности
 
 | Возможность | Подробности |
